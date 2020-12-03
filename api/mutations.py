@@ -22,8 +22,8 @@ def resolve_create_todo(obj, info, description, due_date):
     except ValueError:  # date time errors
         payload = {
             "success": False,
-            "errors": [f"Incorrect date format provided. Date should be in "
-                       f"the format dd-mm-yyyy"]
+            "errors": ["Incorrect date format provided. Date should be in "
+                       "the format dd-mm-yyyy"]
         }
 
     return payload
