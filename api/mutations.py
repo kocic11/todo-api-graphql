@@ -8,7 +8,7 @@ from api.models import Todo
 
 @convert_kwargs_to_snake_case
 def resolve_create_todo(obj, info, description, due_date):
-    print(f"Info: {obj}")
+    print(f"Obj: {obj}")
     print(f"Info: {info}")
     try:
         due_date = datetime.strptime(due_date, '%d-%m-%Y').date()
