@@ -8,8 +8,7 @@ from api.models import Todo
 
 @convert_kwargs_to_snake_case
 def resolve_create_todo(obj, info, description, due_date):
-    print(f"Obj: {obj}")
-    print(f"Info: {info}")
+    print(f"Obj: {obj}, Info: {info}")
     try:
         due_date = datetime.strptime(due_date, '%d-%m-%Y').date()
         todo = Todo(
@@ -33,6 +32,7 @@ def resolve_create_todo(obj, info, description, due_date):
 
 @convert_kwargs_to_snake_case
 def resolve_mark_done(obj, info, todo_id):
+    print(f"Obj: {obj}, Info: {info}")
     try:
         todo = Todo.query.get(todo_id)
         todo.completed = True
