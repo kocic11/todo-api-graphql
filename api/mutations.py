@@ -71,6 +71,7 @@ def resolve_delete_todo(obj, info, todo_id):
 
 @convert_kwargs_to_snake_case
 def resolve_update_due_date(obj, info, todo_id, new_date):
+    print(f"Obj: {obj}", "Info: {info}")
     try:
         todo = Todo.query.get(todo_id)
         if todo:
