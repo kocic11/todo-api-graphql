@@ -40,7 +40,7 @@ def resolve_mark_done(obj, info, todo_id):
             "success": True,
             "todo": todo.to_dict()
         }
-    except AttributeError as error:
+    except AttributeError:
         payload = {
             "success": False,
             "errors":  [f"Todo matching id {todo_id} was not found"]
