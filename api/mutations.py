@@ -6,6 +6,8 @@ from api import db
 from api.models import Todo
 
 
+# pylint: disable=C, unnecessary-pass, wrong-import-order, no-member
+
 @convert_kwargs_to_snake_case
 def resolve_create_todo(obj, info, description, due_date):
     print(f"Obj: {obj}, Info: {info}")
@@ -42,7 +44,7 @@ def resolve_mark_done(obj, info, todo_id):
             "success": True,
             "todo": todo.to_dict()
         }
-    except AttributeError as error:
+    except AttributeError:
         payload = {
             "success": False,
             "errors":  [f"Todo matching id {todo_id} was not found"]
@@ -89,7 +91,7 @@ def resolve_update_due_date(obj, info, todo_id, new_date):
             "errors": ["Incorrect date format provided. Date should be in "
                        "the format dd-mm-yyyy"]
         }
-    except AttributeError:  # todo not found
+    except AttributeError:
         payload = {
             "success": False,
             "errors": [f"Todo matching id {todo_id} not found"]
