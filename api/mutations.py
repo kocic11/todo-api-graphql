@@ -53,6 +53,7 @@ def resolve_mark_done(obj, info, todo_id):
 
 @convert_kwargs_to_snake_case
 def resolve_delete_todo(obj, info, todo_id):
+    print(f"Obj: {obj}", "Info: {info}")
     try:
         todo = Todo.query.get(todo_id)
         db.session.delete(todo)
