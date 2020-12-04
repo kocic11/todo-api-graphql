@@ -82,8 +82,8 @@ def resolve_update_due_date(obj, info, todo_id, new_date):
     except ValueError:  # date format errors
         payload = {
             "success": False,
-            "errors": [f"Incorrect date format provided. Date should be in "
-                       f"the format dd-mm-yyyy"]
+            "errors": ["Incorrect date format provided. Date should be in "
+                       "the format dd-mm-yyyy"]
         }
     except AttributeError:  # todo not found
         payload = {
